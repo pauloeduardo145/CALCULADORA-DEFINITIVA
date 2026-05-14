@@ -4,7 +4,7 @@ def salvar_arquivo(historico):
         for item in historico:
             arquivo.write(f'{item}\n')
 
-def ler_historico(historico):
+def ler_historico():
 
     historico = []
     
