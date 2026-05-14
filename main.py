@@ -1,6 +1,7 @@
 from operacoes import somar, subtrair, multiplicacao, divisao
+from arquivos import ler_historico
 
-historico = []
+historico = ler_historico()
 
 print("Calculadora em PYTHON")
 print("Operações utilizaveis: +, -, *, /")
@@ -21,8 +22,7 @@ else:
     print("Operação invalida!")
 
 def adicionar_historico():
-    tarefa = input("Digite a tarefa: ")
-    historico.append(tarefa)
+    historico.append(historico)
 
 def listar_historico():
     if historico:
