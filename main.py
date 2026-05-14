@@ -6,6 +6,8 @@ while True:
     print("Calculadora em PYTHON")
     print("Operações utilizaveis: +, -, *, /")
 
+    print(historico)
+
     print("1. Somar")
     print("2. Sair")
 
@@ -15,8 +17,7 @@ while True:
         numero1 = float(input("Digite o primeiro numero: "))
         operacao = input("Digite a operação: ")
         numero2 = float(input("Digite o segundo numero: "))
-        salvar_arquivo(historico)
-        
+
         if operacao == "+":
             print("Resultado:", somar(numero1, numero2))
         elif operacao == "-":
@@ -27,6 +28,7 @@ while True:
             print("Resultado:", divisao(numero1, numero2))
         else:
             print("Operação invalida!")
+        resultado = None
 
     elif opcao == "2":
         salvar_arquivo(historico)
@@ -34,7 +36,9 @@ while True:
     
 
 def adicionar_historico():
-        historico.append(ler_historico())
+        expressao = f"{numero1} {operacao} {numero2} = {resultado}"
+        historico.append(expressao)
+        salvar_arquivo(historico)
 
 def listar_historico():
     if historico:
