@@ -1,5 +1,7 @@
 from operacoes import somar, subtrair, multiplicacao, divisao
 
+historico = []
+
 print("Calculadora em PYTHON")
 print("Operações utilizaveis: +, -, *, /")
 
@@ -17,3 +19,14 @@ elif operacao == "/":
     print("Resultado:", divisao(numero1, numero2))
 else:
     print("Operação invalida!")
+
+def adicionar_historico():
+    tarefa = input("Digite a tarefa: ")
+    historico.append(tarefa)
+
+def listar_historico():
+    if historico:
+        for i, tarefa in enumerate(historico, 1):
+            print(f"{i}. {tarefa}")
+    else:
+        print("Não possui historico")
