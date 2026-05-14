@@ -1,5 +1,5 @@
 from operacoes import somar, subtrair, multiplicacao, divisao
-from arquivos import ler_historico
+from arquivos import ler_historico, salvar_arquivo
 
 historico = ler_historico()
 while True:
@@ -15,6 +15,7 @@ while True:
         numero1 = float(input("Digite o primeiro numero: "))
         operacao = input("Digite a operação: ")
         numero2 = float(input("Digite o segundo numero: "))
+        salvar_arquivo(historico)
         
         if operacao == "+":
             print("Resultado:", somar(numero1, numero2))
@@ -27,12 +28,17 @@ while True:
         else:
             print("Operação invalida!")
 
-    def adicionar_historico():
+    elif opcao == "2":
+        salvar_arquivo(historico)
+        break
+    
+
+def adicionar_historico():
         historico.append(ler_historico())
 
-    def listar_historico():
-        if historico:
-            for i, tarefa in enumerate(historico, 1):
-                print(f"{i}. {tarefa}")
-        else:
+def listar_historico():
+    if historico:
+        for i, tarefa in enumerate(historico, 1):
+            print(f"{i}. {tarefa}")
+    else:
             print("Não possui historico")
